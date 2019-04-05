@@ -1,0 +1,72 @@
+body {
+    width: 800px;
+    margin: auto;
+}
+
+.profile, .friends, .general, .wall {
+    border: 1px solid black;
+    margin: 5px;
+	text-align: center;
+}
+
+.left {
+	width: 35%;
+	height: 400px;
+	display: flex;
+	flex-wrap: wrap;
+	float:left;
+}
+
+.right {
+	width: 65%;
+	height: 400px;
+	display: flex;
+	flex-wrap: wrap;
+	float: right;
+}
+
+.profile {
+    width: calc(100% - 12px);
+    height: calc(75% - 12px);
+	background-color: blue;
+    float: left;
+}
+
+.friends {
+    width: calc(100% - 12px);
+	height: calc(25% - 12px);
+    background-color: lightblue;
+    float: left;
+}
+
+.general {
+    width: calc(100% - 12px);
+    height: calc(40% - 12px);
+    background-color: teal;
+	float: right;
+}
+
+.wall {
+    width: calc(100% - 12px);
+    height: calc(60% - 12px);
+    background-color: aqua;
+    float: right;
+}
+
+@media (max-width: 800px) {
+	body {
+        width: 500px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 500px) {
+	body {
+        width: 300px;
+        margin: 0 auto;
+    }
+	
+	.left, .right {
+		width: 100%;
+	}
+}
