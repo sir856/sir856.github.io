@@ -5,13 +5,31 @@ canvas.width = 500;
 canvas.height = 500;
 let ctx = canvas.getContext('2d');
 
+imageRequest();
+
+let div = document.createElement('div');
+body.appendChild(div);
+div.style.width = '500px';
+div.style.display = 'flex';
+
 let button = document.createElement('button');
-document.body.appendChild(button);
+div.appendChild(button);
 button.textContent = 'Generate';
-button.style.width = canvas.width.toString() + 'px';
-button.style.display = 'block';
+button.style.width = '50%';
 button.onclick = function () {
     imageRequest();
+};
+
+let buttonSave = document.createElement('button');
+div.appendChild(buttonSave);
+buttonSave.textContent = 'Download';
+buttonSave.style.width = '50%';
+buttonSave.onclick = function () {
+    let link = document.createElement('a');
+    link.href = canvas.toDataURL();
+    link.download = "image.png";
+    link.click();
+
 };
 
 function imageRequest(){
@@ -40,6 +58,10 @@ function textRequest() {
 async function setImage(result) {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     let pic1 = new Image(), pic2 = new Image(), pic3 = new Image(), pic4 = new Image();
+    pic1.crossOrigin = 'Anonymous';
+    pic2.crossOrigin = 'Anonymous';
+    pic3.crossOrigin = 'Anonymous';
+    pic4.crossOrigin = 'Anonymous';
     pic1.src = result[0].urls.small;
     pic2.src = result[1].urls.small;
     pic3.src = result[2].urls.small;
